@@ -1,0 +1,132 @@
+{
+  "1": {
+    "inputs": {
+      "model_type": "flux-dev-fp8"
+    },
+    "class_type": "RunningHub_UNO_Loadmodel",
+    "_meta": {
+      "title": "RunningHub UNO Loadmodel"
+    }
+  },
+  "9": {
+    "inputs": {
+      "image": "b137ccf84f152e70d3a053b52c481cfdde287a1d0746a5066dd448ac88dfc358.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "40": {
+    "inputs": {
+      "image": "706167c9fbac09520d7a9010db5707d1d652bcec2045d78e079d81e6b5c1eea5.jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "41": {
+    "inputs": {
+      "image": "58878d526a85b5bc61a2b671bfcf03c3ae7ee6997860eb493cdbabaee2ba4b7e.jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "50": {
+    "inputs": {
+      "image1": [
+        "56",
+        0
+      ],
+      "image2": [
+        "40",
+        0
+      ],
+      "image3": [
+        "41",
+        0
+      ]
+    },
+    "class_type": "ImpactMakeImageBatch",
+    "_meta": {
+      "title": "Make Image Batch"
+    }
+  },
+  "51": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "54",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "54": {
+    "inputs": {
+      "prompt": "A woman wears the dress and holds a bag",
+      "width": 704,
+      "height": 704,
+      "guidance": 4,
+      "num_steps": 25,
+      "seed": 1843,
+      "pe": "d",
+      "uno_model": [
+        "1",
+        0
+      ],
+      "uno_clip": [
+        "1",
+        1
+      ],
+      "uno_vae": [
+        "1",
+        2
+      ],
+      "ref_images": [
+        "50",
+        0
+      ]
+    },
+    "class_type": "RunningHub_UNO_Sampler",
+    "_meta": {
+      "title": "RunningHub UNO Sampler"
+    }
+  },
+  "56": {
+    "inputs": {
+      "number_of_faces": 5,
+      "scale_factor": 1.2000000000000002,
+      "shift_factor": 0.45,
+      "start_index": 0,
+      "max_faces_per_image": 1,
+      "aspect_ratio": "1:1",
+      "image": [
+        "9",
+        0
+      ]
+    },
+    "class_type": "AutoCropFaces",
+    "_meta": {
+      "title": "Auto Crop Faces"
+    }
+  },
+  "57": {
+    "inputs": {
+      "images": [
+        "56",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  }
+}
