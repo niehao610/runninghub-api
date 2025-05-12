@@ -6,7 +6,7 @@
 import http.client
 import json
 import os
-from upload import UploadFile , UploadVideoFile
+from upload import UploadFile
 from runninghub_task import  CreateTask
 
 workflow_id = "1921790312258404354"
