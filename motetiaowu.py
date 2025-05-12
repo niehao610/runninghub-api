@@ -6,7 +6,7 @@
 import http.client
 import json
 import os
-from upload import UploadFile
+from upload import UploadFile , UploadVideoFile
 from runninghub_task import  CreateTask
 
 workflow_id = "1921790312258404354"
@@ -27,7 +27,7 @@ def NewTask(api_key, video_path, image_path, times=4):
     conn = http.client.HTTPSConnection("www.runninghub.cn")
     fileId1 = UploadFile(video_path, api_key)
     print(fileId1)
-    fileId2 = UploadFile(image_path, api_key)
+    fileId2 = UploadVideoFile(image_path, api_key)
     print(fileId2)
 
 
