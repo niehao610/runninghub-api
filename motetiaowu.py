@@ -25,9 +25,9 @@ def NewTask(api_key, video_path, image_path, times=4):
 
     """创建任务"""
     conn = http.client.HTTPSConnection("www.runninghub.cn")
-    fileId1 = UploadFile(video_path, api_key)
+    fileId1 = UploadVideoFile(video_path, api_key)
     print(fileId1)
-    fileId2 = UploadVideoFile(image_path, api_key)
+    fileId2 = UploadFile(image_path, api_key)
     print(fileId2)
 
 
