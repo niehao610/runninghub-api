@@ -2,9 +2,14 @@ import http.client
 import mimetypes
 from codecs import encode
 import json
+import ssl
 
 ##file_path : "文件路径 , D:\\temp\\ComfyUI_00743_uiqpt_1742470204.png"
 def UploadFile(file_path, api_key):
+   context = ssl.create_default_context()
+   context.check_hostname = False
+   context.verify_mode = ssl.CERT_NONE
+
    conn = http.client.HTTPSConnection("www.runninghub.cn")
    dataList = []
    boundary = 'wL36Yn8afVp8Ag7AmP8qZ0SA4n1v9T'
