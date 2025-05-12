@@ -75,10 +75,8 @@ def UploadVideoFile(file_path, api_key):
       response = requests.post(url, files=files, data=data, verify=certifi.where())
 
       files['file'].close()
-      data = response.json()
-      print(data)
-      result = json.loads(data)
-
+      result = response.json()
+      print(result)
       ##{"code":0,"msg":"success","data":{"fileName":"api/a61c3fdbe0cc78978f8262d1e5d68cc906984c9e03c38e91198307128a4bc352.png","fileType":"image"}}
       return result["data"]["fileName"]
    except Exception as e:
