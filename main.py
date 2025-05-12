@@ -21,4 +21,8 @@ if __name__ == "__main__":
         image_path = os.path.join(image_dir, image_file)
         #viddeo 跟 image 命名一样, 就是后缀不一样 是 mp4
         video_path = os.path.join(video_dir, image_file.replace(".png", ".mp4"))
+        print("\n\n")
+        print(image_path)
+        print(video_path)
+        print("\n\n")
         motetiaowu.NewTask(api_key, video_path, image_path, 4)
