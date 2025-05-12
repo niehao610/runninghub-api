@@ -2,6 +2,7 @@ from upload import UploadFile
 from dotenv import load_dotenv
 load_dotenv()
 import duotuxiangduozhuti
+import motetiaowu
 import os
 import runninghub_task
 from upload import UploadFile
@@ -9,6 +10,15 @@ if __name__ == "__main__":
     # 运行测试
     api_key = os.getenv("RUNNING_HUB_APPKEY")
     print(api_key)
-    #UploadFile("C:\\Users\\Admin\\Pictures\\cloth\\3.png", api_key)
-    duotuxiangduozhuti.NewTask(api_key, "C:\\Users\\Admin\\Pictures\\cloth\\3.png","C:\\Users\\Admin\\Pictures\\cloth\\5.png","C:\\Users\\Admin\\Pictures\\cloth\\gun.jpg", "Woman wearing green long dress holding a pistol in her hand")
-    #runninghub_task.QueryTask(api_key, "1921453618497511425")
+    work_dir = ""
+    image_dir = os.path.join(work_dir, "images")
+    video_dir = os.path.join(work_dir, "videos")
+
+    image_files = os.listdir(image_dir)
+
+    files = {}
+    for image_file in image_files:
+        image_path = os.path.join(image_dir, image_file)
+        #viddeo 跟 image 命名一样, 就是后缀不一样 是 mp4
+        video_path = os.path.join(video_dir, image_file.replace(".png", ".mp4"))
+        motetiaowu.NewTask(api_key, video_path, image_path)
