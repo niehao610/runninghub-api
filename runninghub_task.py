@@ -16,10 +16,7 @@ import ssl
 
 def ReportTask(api_key, task_id, client_id, task_status, prompt_tips, task_result):
     """上报任务信息"""
-    context = ssl.create_default_context()
-    context.check_hostname = False
-    context.verify_mode = ssl.CERT_NONE
-    conn = http.client.HTTPSConnection("luban.jifeng.online", port=8000 , context=context)
+    conn = http.client.HTTPConnection("luban.jifeng.online", port=8000)
     payload = json.dumps({
         "netWssUrl": None,
         "taskId": task_id,
