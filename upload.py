@@ -10,7 +10,7 @@ def UploadFile(file_path, api_key):
    context.check_hostname = False
    context.verify_mode = ssl.CERT_NONE
 
-   conn = http.client.HTTPSConnection("www.runninghub.cn")
+   conn = http.client.HTTPSConnection("www.runninghub.cn", context=context)
    dataList = []
    boundary = 'wL36Yn8afVp8Ag7AmP8qZ0SA4n1v9T'
    dataList.append(encode('--' + boundary))

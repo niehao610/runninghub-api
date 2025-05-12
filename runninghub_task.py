@@ -11,6 +11,7 @@
 #   "taskResult": null,}
 import  json
 import http.client
+import ssl
 
 
 def ReportTask(api_key, task_id, client_id, task_status, prompt_tips, task_result):
@@ -36,7 +37,12 @@ def ReportTask(api_key, task_id, client_id, task_status, prompt_tips, task_resul
 def CreateTask(api_key, workflow_id, node_info_list):
 
     """创建任务"""
-    conn = http.client.HTTPSConnection("www.runninghub.cn")
+    context = ssl.create_default_context()
+    context.check_hostname = False
+    context.verify_mode = ssl.CERT_NONE
+
+    conn = http.client.HTTPSConnection("www.runninghub.cn", context=context)
+
     payload = json.dumps({
         "apiKey": api_key,
         "workflowId": workflow_id,
@@ -68,7 +74,12 @@ def CreateTask(api_key, workflow_id, node_info_list):
 
 def QueryTask(api_key, taks_id):
     """查询任务状态"""
-    conn = http.client.HTTPSConnection("www.runninghub.cn")
+    context = ssl.create_default_context()
+    context.check_hostname = False
+    context.verify_mode = ssl.CERT_NONE
+
+    conn = http.client.HTTPSConnection("www.runninghub.cn", context=context)
+
     payload = json.dumps({
         "apiKey": api_key,
         "taskId": taks_id
