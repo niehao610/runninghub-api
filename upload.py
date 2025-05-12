@@ -35,7 +35,10 @@ def UploadFile(file_path, api_key):
    dataList.append(encode('Content-Type: {}'.format('text/plain')))
    dataList.append(encode(''))
 
-   dataList.append(encode("image"))
+   if fileType.find("images") >= 0:
+      dataList.append(encode("image"))
+   elif fileType.find("videos") >= 0:
+      dataList.append(encode("video"))
    dataList.append(encode('--'+boundary+'--'))
    dataList.append(encode(''))
    body = b'\r\n'.join(dataList)
