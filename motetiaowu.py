@@ -11,7 +11,7 @@ from runninghub_task import  CreateTask
 
 workflow_id = "1921790312258404354"
 
-def NewTask(api_key, video_path, image_path):
+def NewTask(api_key, video_path, image_path, times=4):
 
     ##file is exist
     if not os.path.exists(video_path):
@@ -41,7 +41,12 @@ def NewTask(api_key, video_path, image_path):
                "nodeId": "1616",
                "fieldName": "image",
                "fieldValue": fileId2
-           }
+           },
+            {
+                "nodeId": "1683",
+                "fieldName": "value",
+                "fieldValue": times
+            }
        ]
 
     CreateTask(api_key, workflow_id , nodeInfoList)
