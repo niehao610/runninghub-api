@@ -22,6 +22,9 @@ def NewTask(api_key, video_path, image_path, times=4):
         print(image_path, " is not exist")
         return
 
+    if not image_path.endswith("png"):
+        print(image_path, " is not png")
+        return
 
     """创建任务"""
     conn = http.client.HTTPSConnection("www.runninghub.cn")
