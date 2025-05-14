@@ -72,6 +72,35 @@ def CreateTask(api_key, workflow_id, node_info_list):
         ReportTask(api_key, task_id, client_id, task_status, prompt_tips, task_result)
 
 
+def CreateTaskToLuban(api_key, workflow_id, node_info_list, task_name):
+
+    """创建任务"""
+    conn = http.client.HTTPConnection("luban.jifeng.online:8000")
+
+    payload = json.dumps({
+        "info" : {
+            "host": 'www.runninghub.cn',
+            "task_name" : task_name
+        },
+        "apiKey": api_key,
+        "workflowId": workflow_id,
+        "nodeInfoList": node_info_list
+    })
+
+    headers = {
+        'Host': 'luban.jifeng.online',
+        'Content-Type': 'application/json'
+    }
+    conn.request("POST", "/api/runninghub/create_task", payload, headers)
+    res = conn.getresponse()
+    data = res.read()
+    print(data.decode("utf-8"))
+    result = json.loads(data.decode("utf-8"))
+    if result["code"] != 0:
+        print("创建任务失败")
+        return
+
+
 def QueryTask(api_key, taks_id):
     """查询任务状态"""
     context = ssl.create_default_context()
@@ -93,3 +122,4 @@ def QueryTask(api_key, taks_id):
     res = conn.getresponse()
     data = res.read()
     print(data.decode("utf-8"))
+

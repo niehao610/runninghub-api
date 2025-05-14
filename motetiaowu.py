@@ -7,7 +7,7 @@ import http.client
 import json
 import os
 from upload import UploadFile
-from runninghub_task import  CreateTask
+from runninghub_task import  CreateTaskToLuban
 
 workflow_id = "1921790312258404354"
 
@@ -30,7 +30,6 @@ def NewTask(api_key, video_path, image_path, times=4):
     fileId2 = UploadFile(image_path, api_key)
     print(fileId2)
 
-
     nodeInfoList =  [
           {
              "nodeId": "60",
@@ -48,5 +47,6 @@ def NewTask(api_key, video_path, image_path, times=4):
                 "fieldValue": times
             }
        ]
-
-    CreateTask(api_key, workflow_id , nodeInfoList)
+    user_name = os.getenv("RUNNING_HUB_USER")
+    task_name = "简版-超清模特_跳舞-换脸工作流高清画质_api"+"("+user_name+")"
+    CreateTaskToLuban(api_key, workflow_id, nodeInfoList, task_name)

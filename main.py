@@ -3,9 +3,21 @@ from dotenv import load_dotenv
 load_dotenv()
 import duotuxiangduozhuti
 import motetiaowu
+import genhuanbeijing
 import os
 import runninghub_task
 from upload import UploadFile
+
+
+if __name__ == "__main_22_":
+    api_key = os.getenv("RUNNING_HUB_APPKEY")
+    print(api_key)
+    image1_path = "D:\AI\ComfyUI_windows_portable\ComfyUI\output\sexy\ComfyUI_00037_.png"
+    genhuanbeijing.NewTask(api_key, image1_path)
+    image1_path = "D:\AI\ComfyUI_windows_portable\ComfyUI\output\sexy\ComfyUI_00036_.png"
+    genhuanbeijing.NewTask(api_key, image1_path)
+
+
 if __name__ == "__main__":
     # 运行测试
     api_key = os.getenv("RUNNING_HUB_APPKEY")
