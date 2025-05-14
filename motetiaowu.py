@@ -44,7 +44,7 @@ def NewTask(api_key, video_path, image_path, times=4):
             {
                 "nodeId": "1683",
                 "fieldName": "value",
-                "fieldValue": times
+                "fieldValue": str(times)
             }
        ]
     user_name = os.getenv("RUNNING_HUB_USER")
