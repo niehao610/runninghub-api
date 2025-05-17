@@ -6,7 +6,7 @@ import motetiaowu
 import genhuanbeijing
 import os
 import runninghub_task
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 
 
 if __name__ == "__main_22_":
