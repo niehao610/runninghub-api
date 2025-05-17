@@ -58,7 +58,7 @@ if __name__ == "__main__":
             ## 使用ffmpeg 提取前15秒
             os.system(f"/usr/local/bin/ffmpeg -ss 3  -i {raw_video_path}  -t  15 -c copy  -avoid_negative_ts 1  {video_path}")
         else:
-            os.system(f"/usr/local/bin/ffmpeg -ss 3  -i {raw_video_path}  -t 15  -c copy  -avoid_negative_ts 1  {video_path}")
+            os.system(f"/usr/local/bin/ffmpeg -ss 3  -i {raw_video_path}  -c copy  -avoid_negative_ts 1  {video_path}")
 
         print("\n\n")
         print(image_path)
