@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # 运行测试
     api_key = os.getenv("RUNNING_HUB_APPKEY")
     print(api_key)
-    work_dir = ""
+    work_dir = "/Users/share/Desktop/running_hub"
     image_dir = os.path.join(work_dir, "images")
     video_dir = os.path.join(work_dir, "videos")
 
