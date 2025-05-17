@@ -30,6 +30,9 @@ if __name__ == "__main__":
 
     files = {}
     for image_file in image_files:
+        if image_file.find(".png") < 0:
+            continue
+
         image_path = os.path.join(image_dir, image_file)
         ##获取文件大小
         file_size = os.path.getsize(image_path)
